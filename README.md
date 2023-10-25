@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://i.imgur.com/pU5A58S.png" alt="Microsoft Active Directory Logo"/>
+<img src="https://github.com/ColtonTrauCC/dns/assets/147654000/8efa60be-b00d-4932-9438-3a8640ff3cd5" height = 20% width = 20%/>
 </p>
 
 <h1 align = "center">Understanding and Building Intuition for DNS (Domain Name System)</h1>
@@ -60,7 +60,23 @@ This lab demonstrates the use of DNS and how to configure it. DNS serves as the 
 
 <p>
   <ul>
-    <li></li>
+    <li>This showcases a DNS cache by creating a local DNS</li>
+    <li>In the Domain Controller VM, go back to the <b>DNS Manager</b> and locate the mainframe host we've created and edit the IP address to <b>8.8.8.8</b></li>
+    <ul>
+      <li><img src = "https://github.com/ColtonTrauCC/dns/assets/147654000/e0aa2757-b0a8-43d8-b57a-4abcc02a555c" width = 80% height = 80% /></li>
+    </ul>
+    <li>Back to the Client VM, ping the mainframe and you'll notice it pings the mainframe's old IP address and not 8.8.8.8. This is because the cache needs to be updated, more evidence of how it is the old cache is if we entered the command <b>ipconfig /displaydns</b></li>
+    <ul>
+      <li><img src = "https://github.com/ColtonTrauCC/dns/assets/147654000/4263bdc1-297f-4922-aa38-ae465dcbf177" width = 80% height = 80% /></li>
+    </ul>
+    <li>Still in the Client VM, run Command Prompt as Administrator and enter the command <b>ipconfig /flushdns</b> (it's a <i>very</i> helpful command in testing pings in IT) and observe the cache is now empty</li>
+    <ul>
+      <li><img src = "https://github.com/ColtonTrauCC/dns/assets/147654000/ca1c5129-1ba3-4c88-8da2-2614952472e4" width = 80% height = 80% /></li>
+    </ul>
+    <li>Attempt to ping mainframe again, and now the new record should appear</li>
+    <ul>
+      <li><img src = "https://github.com/ColtonTrauCC/dns/assets/147654000/2687c04b-e67d-4c8e-89bb-c60a6e7d3aff" width = 80% height = 80% /></li>
+    </ul>
   </ul>
 </p>
 
