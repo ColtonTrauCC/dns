@@ -41,7 +41,7 @@ This lab demonstrates the use of DNS and how to configure it. DNS serves as the 
     </ul>
     <li>The same result also applies if we attempt and nslookup of the mainframe (command line <b>nslookup mainframe</b>) because we do not have a DNS record</li>
     <li>To create a DNS A-Record, go to the Domain Controller VM and open the <b>DNS Manager</b>b> in the Server Manager Board and go to the domain you created within the <b>Forward Lookup Zones</b> tab (mydomain.com)</li>
-    <li>Right click on the page and create a <b>New Host</b>. We will name the host <b>mainframe</b>b> and the IP address should be the same IP as the domain controller so that ping can resolve. Once the information is entered, click <b>Add Host</b> and refresh the DNS server so that the new record can be updated.</li>
+    <li>Right click on the page and create a <b>New Host (A or AAAA)</b>. We will name the host <b>mainframe</b> and the IP address should be the same IP as the domain controller so that ping can resolve. Once the information is entered, click <b>Add Host</b> and refresh the DNS server so that the new record can be updated.</li>
     <ul>
       <li><img src = "https://github.com/ColtonTrauCC/dns/assets/147654000/ee7f533c-ae4d-4484-9854-9790a3766b20" width = 80% height = 80% /></li>
     </ul>
@@ -69,7 +69,7 @@ This lab demonstrates the use of DNS and how to configure it. DNS serves as the 
     <ul>
       <li><img src = "https://github.com/ColtonTrauCC/dns/assets/147654000/4263bdc1-297f-4922-aa38-ae465dcbf177" width = 80% height = 80% /></li>
     </ul>
-    <li>Still in the Client VM, run Command Prompt as Administrator and enter the command <b>ipconfig /flushdns</b> (it's a <i>very</i> helpful command in testing pings in IT) and observe the cache is now empty</li>
+    <li>Still in the Client VM, run Command Prompt as Administrator and enter the command <b>ipconfig /flushdns</b> (it's a <i>very</i> helpful command for flushing the DNS for testing pings in IT) and observe the cache is now empty</li>
     <ul>
       <li><img src = "https://github.com/ColtonTrauCC/dns/assets/147654000/ca1c5129-1ba3-4c88-8da2-2614952472e4" width = 80% height = 80% /></li>
     </ul>
@@ -87,6 +87,16 @@ This lab demonstrates the use of DNS and how to configure it. DNS serves as the 
 <p>
   <ul>
     <li>"CNAME" is abbreviated form of "Canonical Name:" pointing to a name to another name instead of to an IP address unlike A-Record</li>
+    <li>In the Domain Controller VM, open the <b>DNS Manager</b>b> in the Server Manager Board and go to the domain you created within the <b>Forward Lookup Zones</b> tab (mydomain.com)</li>
+    <li>Right click on the page and create a <b>New Alias (CNAME)</b>. We will name the alias <b>search</b> and the fully qualified domain name (FQDN) to any website such as <b>www.google.com</b>. Once the information is entered, click <b>OK</b> and refresh the DNS server so that the new record can be updated.</li>
+    <ul>
+      <li><img src = "https://github.com/ColtonTrauCC/dns/assets/147654000/e07da767-c221-4547-9258-8c0420e40619" width = 80% height = 80% /></li>
+    </ul>
+    <li>Back to the Client VM, ping the record we've named "search" by the command <b>ping search</b> and observe the results of the CNAME Record. It should ping to the website listed in the FQDN (for this case, Google)</li>
+    <ul>
+      <li><img src = "https://github.com/ColtonTrauCC/dns/assets/147654000/22b54d0c-2c8a-4ed3-a3be-b5a752c13368" width = 80% height = 80% /></li>
+    </ul>
+    <li>Performing the nslookup command with "search" (<b>nslookup search</b>) will result in an name server lookup for Google</li>
   </ul>
 </p>
 
