@@ -48,6 +48,8 @@ This lab demonstrates the use of DNS and how to configure it. DNS serves as the 
     <li>Head back to the Client VM and attempt to ping the mainframe again, the issue should be resolved and receive the ping successfully</li>
     <ul>
       <li><img src = "https://github.com/ColtonTrauCC/dns/assets/147654000/5f27f8a2-fc9f-4379-9f0d-b53a2b4312b3" width = 80% height = 80% /></li>
+      <li>Performing an nslookup</li>
+      <li><img src = "https://github.com/ColtonTrauCC/dns/assets/147654000/e20d90fe-bf2d-4fbf-bbd6-a4b01def0515" width = 80% height = 80% /></li>
     </ul>
   </ul>
 </p>
